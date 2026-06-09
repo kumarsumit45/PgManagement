@@ -57,8 +57,11 @@ export class RoomsService {
 
   async findVacantRooms(buildingId?: string) {
     const query = this.roomRepo.createQueryBuilder('room')
-      .leftJoinAndSelect('room.beds', 'bed')
-      .where('bed.isOccupied = false AND bed.isActive = true');
+      .leftJoinAndSelect('room.beds', 'bed', 'bed.isOccupied = false AND bed.isActive = true')
+      .where('room.isActive = true')
+      .andWhere(
+        'EXISTS (SELECT 1 FROM beds b WHERE b.room_id = room.id AND b.is_occupied = false AND b.is_active = true)',
+      );
 
     if (buildingId) query.andWhere('room.buildingId = :buildingId', { buildingId });
 

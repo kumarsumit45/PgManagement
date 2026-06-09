@@ -1,4 +1,4 @@
-import { Module, Global, DynamicModule, Provider, Inject } from '@nestjs/common';
+import { Module, Global, Provider, Inject } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import Redis from 'ioredis';
 

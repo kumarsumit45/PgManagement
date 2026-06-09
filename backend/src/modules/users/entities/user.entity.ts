@@ -1,4 +1,4 @@
-import { Entity, Column, OneToMany, OneToOne } from 'typeorm';
+import { Entity, Column } from 'typeorm';
 import { Exclude } from 'class-transformer';
 import { BaseEntity } from '../../../database/entities/base.entity';
 import { Role } from '../../../common/enums/role.enum';

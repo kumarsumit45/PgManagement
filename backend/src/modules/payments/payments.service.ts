@@ -18,7 +18,6 @@ import {
 } from './dto/payment.dto';
 import { PaymentStatus, PaymentMethod } from '../../common/enums/payment-status.enum';
 import { PaginationDto, paginate } from '../../common/dto/pagination.dto';
-import { v4 as uuidv4 } from 'uuid';
 
 @Injectable()
 export class PaymentsService {
